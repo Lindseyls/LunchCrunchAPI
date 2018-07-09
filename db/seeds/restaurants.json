@@ -1,0 +1,98 @@
+[
+  {
+    "yelp_id":"aX2ctpgS9uvFDfdzCXjecA",
+    "name":"The Crumpet Shop",
+    "image_url":"https://s3-media3.fl.yelpcdn.com/bphoto/sg9QU7bmfsWe_JT48ciI1Q/o.jpg",
+    "categories":[
+      {
+        "alias": "bakeries",
+        "title": "Bakeries"
+      },
+      {
+        "alias": "coffee",
+        "title": "Coffee & Tea"
+      },
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      }
+    ],
+    "rating":4.5,
+    "price":"$",
+    "location":[
+      "1503 1st Ave",
+      "Seattle, WA 98101"
+    ],
+    "coordinates":{
+      "latitude":47.60899,
+      "longitude":-122.34044
+    },
+    "distance":1861.3938968546943,
+    "transactions":[]
+  },
+  {
+    "yelp_id":"cTmNh4H4EXL7QMlMUtiZ5w",
+    "name":"The London Plane",
+    "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/nJSJMxR37K4IyRqZsSQxmg/o.jpg",
+    "categories":[
+      {
+        "alias": "cafes",
+        "title": "Cafes"
+      },
+      {
+        "alias": "grocery",
+        "title": "Grocery"
+      },
+      {
+        "alias": "florists",
+        "title": "Florists"
+      }
+    ],
+    "rating":4,
+    "price":"$$",
+    "location":[
+      "300 Occidental Ave S",
+      "Seattle, WA 98104"
+    ],
+    "coordinates":{
+      "latitude":47.59962,
+      "longitude":-122.33249
+    },
+    "distance":2838.264964012191,
+    "transactions": [
+      "pickup",
+      "delivery"
+    ]
+  },
+  {
+    "yelp_id":"PwHQ4CCpDR1ODxuOMH1kyg",
+    "name":"Café Campagne",
+    "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/LW5QvJKROaSbJiFgf2mN4w/o.jpg",
+    "categories":[
+      {
+        "alias": "french",
+        "title": "French"
+      },
+      {
+        "alias": "breakfast_brunch",
+        "title": "Breakfast & Brunch"
+      },
+      {
+        "alias": "cafes",
+        "title": "Cafes"
+      }
+    ],
+    "rating":4,
+    "price":"$$",
+    "location":[
+      "1600 Post Aly",
+      "Seattle, WA 98101"
+    ],
+    "coordinates":{
+      "latitude":47.60975,
+      "longitude":-122.34143
+    },
+    "distance":1798.6307556110585,
+    "transactions":[]
+  }
+]

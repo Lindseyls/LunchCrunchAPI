@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  yelp_id: MyString
+  name: MyString
+  image_url: MyString
+  rating: 1
+  price: MyString
+  distance: 1
+
+two:
+  yelp_id: MyString
+  name: MyString
+  image_url: MyString
+  rating: 1
+  price: MyString
+  distance: 1
