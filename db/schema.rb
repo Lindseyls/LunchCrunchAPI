@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_09_204430) do
+ActiveRecord::Schema.define(version: 2018_07_10_040829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "popular_times", force: :cascade do |t|
+    t.integer "wait_time"
+    t.integer "total_time_spent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "restaurant_id"
+    t.index ["restaurant_id"], name: "index_popular_times_on_restaurant_id"
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "yelp_id"
@@ -30,4 +39,5 @@ ActiveRecord::Schema.define(version: 2018_07_09_204430) do
     t.text "transactions", default: [], array: true
   end
 
+  add_foreign_key "popular_times", "restaurants"
 end
