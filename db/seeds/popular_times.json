@@ -1,17 +1,17 @@
 [
   {
-    "yelp_id":"aX2ctpgS9uvFDfdzCXjecA",
     "wait_time":5,
-    "total_time_spent":60
+    "total_time_spent":55,
+    "restaurant_id":1
   },
   {
-    "yelp_id":"cTmNh4H4EXL7QMlMUtiZ5w",
     "wait_time":15,
-    "total_time_spent":60
+    "total_time_spent":45,
+    "restaurant_id":2
   },
   {
-    "yelp_id":"PwHQ4CCpDR1ODxuOMH1kyg",
     "wait_time":20,
-    "total_time_spent":60
+    "total_time_spent":50,
+    "restaurant_id":2
   }
 ]

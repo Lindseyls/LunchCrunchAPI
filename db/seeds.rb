@@ -10,6 +10,6 @@ JSON.parse(File.read('db/seeds/restaurants.json')).each do |restaurant|
   Restaurant.create!(restaurant)
 end
 
-# JSON.parse(File.read('db/seeds/popular_times.json')).each do |time|
-#   Time.create!(time)
-# end
+JSON.parse(File.read('db/seeds/popular_times.json')).each do |time|
+  PopularTime.create!(time)
+end
