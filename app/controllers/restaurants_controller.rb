@@ -10,7 +10,8 @@ class RestaurantsController < ApplicationController
       :rating,
       :price,
       :location,
-      :coordinates,
+      :longitude,
+      :latitude,
       :distance,
       :transactions
       ], include: :popular_times), status: :ok

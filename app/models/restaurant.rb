@@ -23,4 +23,13 @@ class Restaurant < ApplicationRecord
 
     return restaurant
   end
+
+  def coordinates
+    return {latitude: self.latitude, longitude: self.longitude}
+  end
+
+  def coordinates=(coordinates)
+    self.latitude = coordinates["latitude"]
+    self.longitude = coordinates["longitude"]
+  end
 end
