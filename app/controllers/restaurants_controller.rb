@@ -6,13 +6,16 @@ class RestaurantsController < ApplicationController
       :yelp_id,
       :name,
       :image_url,
+      :yelp_url,
+      :review_count,
       :categories,
       :rating,
       :price,
       :location,
-      :longitude,
       :latitude,
+      :longitude,
       :distance,
+      :display_phone,
       :transactions
       ], include: :popular_times), status: :ok
   end
@@ -25,12 +28,16 @@ class RestaurantsController < ApplicationController
         :yelp_id,
         :name,
         :image_url,
+        :yelp_url,
+        :review_count,
         :categories,
         :rating,
         :price,
         :location,
-        :coordinates,
+        :latitude,
+        :longitude,
         :distance,
+        :display_phone,
         :transactions
         ]), status: :ok
     else
@@ -51,7 +58,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    return params.permit(:yelp_id, :name, :image_url, :categories, :rating, :price, :location, :coordinates, :distance, :transactions, popular_times: [:wait_time, :total_time_spent])
+    return params.permit(:yelp_id, :name, :image_url, :yelp_url, :review_count, :categories, :rating, :price, :location, :coordinates, :distance, :display_phone, :transactions, popular_times: [:wait_time, :total_time_spent])
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_11_214452) do
+ActiveRecord::Schema.define(version: 2018_07_13_060331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 2018_07_11_214452) do
     t.string "yelp_id"
     t.string "name"
     t.string "image_url"
-    t.integer "rating"
+    t.float "rating"
     t.string "price"
-    t.integer "distance"
+    t.float "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "categories", default: [], array: true
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2018_07_11_214452) do
     t.text "transactions", default: [], array: true
     t.string "latitude"
     t.string "longitude"
+    t.string "yelp_url"
+    t.integer "review_count"
+    t.string "display_phone"
   end
 
   add_foreign_key "popular_times", "restaurants"

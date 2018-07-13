@@ -13,5 +13,30 @@
     "wait_time":20,
     "total_time_spent":50,
     "restaurant_id":2
+  },
+  {
+    "wait_time":7,
+    "total_time_spent":60,
+    "restaurant_id":7
+  },
+  {
+    "wait_time":5,
+    "total_time_spent":45,
+    "restaurant_id":9
+  },
+  {
+    "wait_time":10,
+    "total_time_spent":40,
+    "restaurant_id":9
+  },
+  {
+    "wait_time":10,
+    "total_time_spent":50,
+    "restaurant_id":8
+  },
+  {
+    "wait_time":2,
+    "total_time_spent":30,
+    "restaurant_id":4
   }
 ]
