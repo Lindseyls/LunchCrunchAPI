@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_13_060331) do
+ActiveRecord::Schema.define(version: 2018_07_18_175354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cateories_restaurants_joins", force: :cascade do |t|
+    t.bigint "cateory_id"
+    t.bigint "restaurant_id"
+    t.index ["cateory_id"], name: "index_cateories_restaurants_joins_on_cateory_id"
+    t.index ["restaurant_id"], name: "index_cateories_restaurants_joins_on_restaurant_id"
+  end
 
   create_table "popular_times", force: :cascade do |t|
     t.integer "wait_time"
@@ -33,14 +46,25 @@ ActiveRecord::Schema.define(version: 2018_07_13_060331) do
     t.float "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "categories", default: [], array: true
     t.text "location", default: [], array: true
-    t.text "transactions", default: [], array: true
     t.string "latitude"
     t.string "longitude"
     t.string "yelp_url"
     t.integer "review_count"
     t.string "display_phone"
+  end
+
+  create_table "restaurants_transactions_joins", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.bigint "transaction_id"
+    t.index ["restaurant_id"], name: "index_restaurants_transactions_joins_on_restaurant_id"
+    t.index ["transaction_id"], name: "index_restaurants_transactions_joins_on_transaction_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "popular_times", "restaurants"
