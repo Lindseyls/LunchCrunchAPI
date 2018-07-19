@@ -11,13 +11,22 @@ class RestaurantsController < ApplicationController
         image_url: list.image_url,
         yelp_url: list.url,
         review_count: list.review_count,
+        # categories: list.categories,
         rating: list.rating,
         price: list.price,
         location: list.location,
         latitude: list.latitude,
         longitude: list.longitude,
+        # transactions: list.transactions,
         distance: list.distance,
-        display_phone: list.display_phone
+        display_phone: list.display_phone,
+        # popular_times: [
+        #   {
+        #     wait_time: rand(0...30),
+        #     total_time_spent: rand(0...60),
+        #     restaurant_id: rand(0...50)
+        #   }
+        # ]
       )
     end
 
@@ -35,7 +44,7 @@ class RestaurantsController < ApplicationController
         :image_url,
         :yelp_url,
         :review_count,
-        :categories,
+        # :categories,
         :rating,
         :price,
         :location,
@@ -43,7 +52,7 @@ class RestaurantsController < ApplicationController
         :longitude,
         :distance,
         :display_phone,
-        :transactions
+        # :transactions
         ]), status: :ok
       else
         render json: {ok: false, :errors => "Restaurant not found"}, status: :not_found

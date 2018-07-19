@@ -15,13 +15,13 @@ JSON.parse(File.read('db/seeds/popular_times.json')).each do |time|
 end
 
 
-# i = 1
-#
-# 50.times do |i|
-#   PopularTime.create!(
-#     wait_time:rand(0...60),
-#     total_time_spent:rand(0...60),
-#     restaurant_id: i
-#   )
-#   i += 1
-# end
+i = 1
+
+58.times do |i|
+  PopularTime.create!(
+    wait_time:rand(0...15),
+    total_time_spent:rand(30...60),
+    restaurant_id: i
+  )
+  i += 1
+end

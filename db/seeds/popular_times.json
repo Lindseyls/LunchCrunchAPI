@@ -38,5 +38,10 @@
     "wait_time":2,
     "total_time_spent":30,
     "restaurant_id":4
+  },
+  {
+    "wait_time":2,
+    "total_time_spent":30,
+    "restaurant_id":21
   }
 ]

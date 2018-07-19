@@ -15,7 +15,7 @@ class YelpApiAdapter
     @review_count = review_count
     @rating = rating
     @price = price
-    @location = location.join(", ")
+    @location = location
     @latitude = latitude
     @longitude = longitude
     @distance = distance
