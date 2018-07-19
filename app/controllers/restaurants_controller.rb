@@ -1,23 +1,50 @@
 class RestaurantsController < ApplicationController
 
+  around_action :catch_api_error
+
+  # def index
+  #   restaurants = Restaurant.all
+  #   render json: restaurants.as_json(only: [
+  #     :yelp_id,
+  #     :name,
+  #     :image_url,
+  #     :yelp_url,
+  #     :review_count,
+  #     :categories,
+  #     :rating,
+  #     :price,
+  #     :location,
+  #     :latitude,
+  #     :longitude,
+  #     :distance,
+  #     :display_phone,
+  #     :transactions
+  #     ], include: :popular_times), status: :ok
+  # end
+
   def index
-    restaurants = Restaurant.all
-    render json: restaurants.as_json(only: [
-      :yelp_id,
-      :name,
-      :image_url,
-      :yelp_url,
-      :review_count,
-      :categories,
-      :rating,
-      :price,
-      :location,
-      :latitude,
-      :longitude,
-      :distance,
-      :display_phone,
-      :transactions
-      ], include: :popular_times), status: :ok
+    data = YelpApiWrapper.list_restaurants
+
+    # data.map do |list|
+    #   Restaurant.create(
+    #     yelp_id: list.id,
+    #     name: list.name,
+    #     image_url: list.image_url,
+    #     yelp_url: list.url,
+    #     review_count: list.review_count,
+    #     rating: list.rating,
+    #     price: list.price,
+    #     location: list.location,
+    #     latitude: list.latitude,
+    #     longitude: list.longitude,
+    #     distance: list.distance,
+    #     display_phone: list.display_phone
+    #   )
+    # end
+    #
+    # render json: @restaurants.as_json(include: :popular_times), status: :ok
+
+    render json: data
   end
 
   def show
@@ -40,25 +67,38 @@ class RestaurantsController < ApplicationController
         :display_phone,
         :transactions
         ]), status: :ok
-    else
-      render json: {ok: false, :errors => "Restaurant not found"}, status: :not_found
+      else
+        render json: {ok: false, :errors => "Restaurant not found"}, status: :not_found
+      end
     end
-  end
 
-  def create
-    restaurant = Restaurant.create_with_times(restaurant_params)
+    def create
+      restaurant = Restaurant.new(restaurant_params)
 
-    if restaurant.valid?
-      render json: {id: restaurant.id}, status: :ok
-    else
-      render json: {ok: false, cause: "validation errors", errors: restaurant.errors}, status: :bad_request
+      if restaurant.save
+        render json: restaurant.as_json(except: [:created_at, :updated_at], status: :ok)
+      else
+        render json: {ok: false, cause: "validation errors", errors: restaurant.errors}, status: :bad_request
+      end
     end
+
+    private
+
+    def catch_api_error
+      begin
+        # This will run the actual controller action
+        # Actually the same yield keyword as in
+        # application.html.erb
+        yield
+      rescue YelpApiWrapper::YelpError => error
+        flash[:status] = :failure
+        flash[:message] = "API called failed: #{error}"
+        redirect_back fallback_location: root_path
+      end
+    end
+
+    def restaurant_params
+      return params.permit(:yelp_id, :name, :image_url, :yelp_url, :review_count, :rating, :price, :location, :latitude, :longitude, :distance, :display_phone, popular_times: [:wait_time, :total_time_spent])
+    end
+
   end
-
-  private
-
-  def restaurant_params
-    return params.permit(:yelp_id, :name, :image_url, :yelp_url, :review_count, :categories, :rating, :price, :location, :coordinates, :distance, :display_phone, :transactions, popular_times: [:wait_time, :total_time_spent])
-  end
-
-end

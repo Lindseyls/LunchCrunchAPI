@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-JSON.parse(File.read('db/seeds/restaurants.json')).each do |restaurant|
-  Restaurant.create!(restaurant)
-end
+# JSON.parse(File.read('db/seeds/restaurants.json')).each do |restaurant|
+#   Restaurant.create!(restaurant)
+# end
 
-JSON.parse(File.read('db/seeds/popular_times.json')).each do |time|
-  PopularTime.create!(time)
-end
+# JSON.parse(File.read('db/seeds/popular_times.json')).each do |time|
+#   PopularTime.create!(time)
+# end

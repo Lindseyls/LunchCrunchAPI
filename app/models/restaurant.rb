@@ -2,7 +2,7 @@ class Restaurant < ApplicationRecord
   has_and_belongs_to_many :categories
   has_many :popular_times
 
-  validates :yelp_id, :name, :image_url, :rating, :price, :location, :coordinates, :distance, presence: true
+  # validates :yelp_id, :name, :image_url, :rating, :price, :location, :coordinates, :distance, presence: true
 
   def self.create_with_times(restaurant_params)
     yelp_id = restaurant_params[:yelp_id]
