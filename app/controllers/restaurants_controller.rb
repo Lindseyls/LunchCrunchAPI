@@ -2,49 +2,27 @@ class RestaurantsController < ApplicationController
 
   around_action :catch_api_error
 
-  # def index
-  #   restaurants = Restaurant.all
-  #   render json: restaurants.as_json(only: [
-  #     :yelp_id,
-  #     :name,
-  #     :image_url,
-  #     :yelp_url,
-  #     :review_count,
-  #     :categories,
-  #     :rating,
-  #     :price,
-  #     :location,
-  #     :latitude,
-  #     :longitude,
-  #     :distance,
-  #     :display_phone,
-  #     :transactions
-  #     ], include: :popular_times), status: :ok
-  # end
-
   def index
-    data = YelpApiWrapper.list_restaurants
+    yelp_data = YelpApiWrapper.list_restaurants
+    yelp_data.map do |list|
+      Restaurant.create(
+        yelp_id: list.id,
+        name: list.name,
+        image_url: list.image_url,
+        yelp_url: list.url,
+        review_count: list.review_count,
+        rating: list.rating,
+        price: list.price,
+        location: list.location,
+        latitude: list.latitude,
+        longitude: list.longitude,
+        distance: list.distance,
+        display_phone: list.display_phone
+      )
+    end
 
-    # data.map do |list|
-    #   Restaurant.create(
-    #     yelp_id: list.id,
-    #     name: list.name,
-    #     image_url: list.image_url,
-    #     yelp_url: list.url,
-    #     review_count: list.review_count,
-    #     rating: list.rating,
-    #     price: list.price,
-    #     location: list.location,
-    #     latitude: list.latitude,
-    #     longitude: list.longitude,
-    #     distance: list.distance,
-    #     display_phone: list.display_phone
-    #   )
-    # end
-    #
-    # render json: @restaurants.as_json(include: :popular_times), status: :ok
-
-    render json: data
+    @restaurants = Restaurant.all
+    render json: @restaurants.as_json(except: [:created_at, :updated_at], include: :popular_times), status: :ok
   end
 
   def show
