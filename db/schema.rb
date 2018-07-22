@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_222554) do
+ActiveRecord::Schema.define(version: 2018_07_19_234021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 2018_07_19_222554) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cateories_restaurants_joins", force: :cascade do |t|
+  create_table "cateories_restaurants", force: :cascade do |t|
     t.bigint "cateory_id"
     t.bigint "restaurant_id"
-    t.index ["cateory_id"], name: "index_cateories_restaurants_joins_on_cateory_id"
-    t.index ["restaurant_id"], name: "index_cateories_restaurants_joins_on_restaurant_id"
+    t.index ["cateory_id"], name: "index_cateories_restaurants_on_cateory_id"
+    t.index ["restaurant_id"], name: "index_cateories_restaurants_on_restaurant_id"
   end
 
   create_table "popular_times", force: :cascade do |t|
@@ -54,11 +54,11 @@ ActiveRecord::Schema.define(version: 2018_07_19_222554) do
     t.string "display_phone"
   end
 
-  create_table "restaurants_transactions_joins", force: :cascade do |t|
+  create_table "restaurants_transactions", force: :cascade do |t|
     t.bigint "restaurant_id"
     t.bigint "transaction_id"
-    t.index ["restaurant_id"], name: "index_restaurants_transactions_joins_on_restaurant_id"
-    t.index ["transaction_id"], name: "index_restaurants_transactions_joins_on_transaction_id"
+    t.index ["restaurant_id"], name: "index_restaurants_transactions_on_restaurant_id"
+    t.index ["transaction_id"], name: "index_restaurants_transactions_on_transaction_id"
   end
 
   create_table "transactions", force: :cascade do |t|

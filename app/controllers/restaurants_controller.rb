@@ -20,13 +20,6 @@ class RestaurantsController < ApplicationController
         # transactions: list.transactions,
         distance: list.distance,
         display_phone: list.display_phone,
-        # popular_times: [
-        #   {
-        #     wait_time: rand(0...30),
-        #     total_time_spent: rand(0...60),
-        #     restaurant_id: rand(0...50)
-        #   }
-        # ]
       )
     end
 
