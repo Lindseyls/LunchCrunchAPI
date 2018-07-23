@@ -5,6 +5,10 @@ class RestaurantsController < ApplicationController
   def index
     yelp_data = YelpApiWrapper.list_restaurants
     yelp_data.map do |list|
+      if Restaurant.find_by(yelp_id: list.id)
+        next
+      end
+
       Restaurant.create(
         yelp_id: list.id,
         name: list.name,
