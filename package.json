@@ -1,5 +1,7 @@
 {
   "name": "lunch-crunch-API",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "heroku": "^7.18.3"
+  }
 }

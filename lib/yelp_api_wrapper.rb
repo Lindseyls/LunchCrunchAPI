@@ -25,18 +25,4 @@ class YelpApiWrapper
 
   end
 
-
-  # def self.show_recipe(uri)
-  #
-  #   uri_url = "http://www.edamam.com/ontologies/edamam.owl#recipe_"
-  #   full_url = URI.encode(BASE_URL + "?r=#{uri_url}#{uri}&app_id=" + APP_ID + "&app_key=" + APP_KEY + "&from=#{FROM}&to=#{TO}")
-  #
-  #   response = HTTParty.get(full_url).parsed_response
-  #
-  #
-  #   raise YelpError.new("Could not find the recipe") unless response[0]
-  #
-  #   return Yelp.from_api(response[0])
-  # end
-
 end
